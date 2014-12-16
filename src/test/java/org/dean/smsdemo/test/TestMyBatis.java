@@ -16,6 +16,7 @@ import com.alibaba.fastjson.JSON;
 // 表示继承了SpringJUnit4ClassRunner类
 @ContextConfiguration(locations = { "classpath:spring-mybatis.xml" })
 public class TestMyBatis {
+	
 	private static Logger logger = Logger.getLogger(TestMyBatis.class);
 	// private ApplicationContext ac = null;
 	@Resource
@@ -34,4 +35,5 @@ public class TestMyBatis {
 		// logger.info("值："+user.getUserName());
 		logger.info(JSON.toJSONString(user));
 	}
+	
 }

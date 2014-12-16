@@ -8,10 +8,11 @@
 		<result column="password" property="password" jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
 	</resultMap>
-	
+
 	<sql id="Base_Column_List">
 		id, user_name, password, age
 	</sql>
+	
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
@@ -19,10 +20,12 @@
 		from user_t
 		where id = #{id,jdbcType=INTEGER}
 	</select>
+	
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from user_t
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
+	
 	<insert id="insert" parameterType="org.dean.smsdemo.pojo.User">
 		insert into user_t (id,
 		user_name, password,
@@ -32,6 +35,7 @@
 		#{password,jdbcType=VARCHAR},
 		#{age,jdbcType=INTEGER})
 	</insert>
+	
 	<insert id="insertSelective" parameterType="org.dean.smsdemo.pojo.User">
 		insert into user_t
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -63,6 +67,7 @@
 			</if>
 		</trim>
 	</insert>
+	
 	<update id="updateByPrimaryKeySelective" parameterType="org.dean.smsdemo.pojo.User">
 		update user_t
 		<set>
@@ -78,6 +83,7 @@
 		</set>
 		where id = #{id,jdbcType=INTEGER}
 	</update>
+	
 	<update id="updateByPrimaryKey" parameterType="org.dean.smsdemo.pojo.User">
 		update user_t
 		set
@@ -88,4 +94,5 @@
 		where id =
 		#{id,jdbcType=INTEGER}
 	</update>
+	
 </mapper>
